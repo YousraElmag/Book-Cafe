@@ -41,5 +41,5 @@ if (process.env.NODE_ENV === "production") {
 
 // For Cypress testing
 if (process.env.NODE_ENV !== "production") {
-  app.use("/api/test", testRouter);
+  app.use("https://book-cafe-yi78.onrender.com/api/test", testRouter);
 }
