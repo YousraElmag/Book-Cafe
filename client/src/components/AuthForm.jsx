@@ -26,8 +26,7 @@ const AuthForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `/api/users/login`,
+      const response = await axios.post("https://book-cafe-yi78.onrender.com/api/users/login",
         { email, password },
       );
       if (response.data) {
