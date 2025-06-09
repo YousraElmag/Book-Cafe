@@ -20,14 +20,14 @@ const AuthForm = () => {
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
-    window.location.href = `${process.env.BASE_SERVER_URL}/api/auth/google`;
+    window.location.href = `/api/auth/google`;
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.BASE_SERVER_URL}/api/users/login`,
+        `/api/users/login`,
         { email, password },
       );
       if (response.data) {
@@ -51,7 +51,7 @@ const AuthForm = () => {
     }
     try {
       const { data } = await axios.post(
-        `${process.env.BASE_SERVER_URL}/api/users/register`,
+        `/api/users/register`,
         { name, email, password, confirmPassword },
       );
       if (data) {
