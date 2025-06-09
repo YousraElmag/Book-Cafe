@@ -54,7 +54,9 @@ module.exports = {
   devServer: {
   proxy: [
     {
-    
+      context: ['/api'],
+      target: 'https://book-cafe-yi78.onrender.com',
+      changeOrigin: true,
     },
   ],
 }
