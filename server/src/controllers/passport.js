@@ -7,7 +7,7 @@ dotenv.config();
 
 const callbackURL =
   process.env.NODE_ENV === "production"
-    ? `${process.env.BASE_URL}/api/auth/google/callback`
+    ? `/api/auth/google/callback`
     : "http://localhost:5000/api/auth/google/callback";
 
    

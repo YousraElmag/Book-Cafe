@@ -18,7 +18,7 @@ const BookDetailComponent = () => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BASE_SERVER_URL}/api/book/detail/${id}`,
+          `/api/book/detail/${id}`,
         );
         setBook(response.data);
       } catch (error) {
@@ -40,7 +40,7 @@ const BookDetailComponent = () => {
 
     try {
       await axios.post(
-        `${process.env.BASE_SERVER_URL}/api/users/${user.id}/favoriteBook`,
+        `/api/users/${user.id}/favoriteBook`,
         { bookId: book.id },
         {
           headers: {
