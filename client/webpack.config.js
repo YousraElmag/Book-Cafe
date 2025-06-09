@@ -55,7 +55,7 @@ module.exports = {
   proxy: [
     {
       context: ['/api'],
-      target:  'http://localhost:5000',
+      target:  'https://book-cafe-yi78.onrender.com',
       changeOrigin: true,
     },
   ],
