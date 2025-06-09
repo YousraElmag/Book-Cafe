@@ -6,7 +6,7 @@ import { logError } from "../util/logging.js";
 dotenv.config();
 
 const callbackURL =
-   "http://localhost:5000/api/auth/google/callback";
+   "https://book-cafe-yi78.onrender.com/api/auth/google";
 
    
 passport.use(
