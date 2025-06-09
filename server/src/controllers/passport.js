@@ -6,9 +6,7 @@ import { logError } from "../util/logging.js";
 dotenv.config();
 
 const callbackURL =
-  process.env.NODE_ENV === "production"
-    ? `/api/auth/google/callback`
-    : "http://localhost:5000/api/auth/google/callback";
+   "http://localhost:5000/api/auth/google/callback";
 
    
 passport.use(
