@@ -52,13 +52,13 @@ module.exports = {
  
   ],
   devServer: {
-    historyApiFallback: true,
-    proxy: {
-      "/api": {
-        
-        changeOrigin: true,
-        secure: false,
-      },
+  proxy: [
+    {
+      context: ['/api'],
+      target: 'http://localhost:5000',
+      changeOrigin: true,
     },
-  },
+  ],
+}
+
 };
