@@ -12,17 +12,6 @@ if (port == null) {
   logError(new Error("Cannot find a PORT number, did you create a .env file?"));
 }
 
-if (process.env.NODE_ENV === "production") {
-  app.use(
-    express.static(new URL("../../client/dist", import.meta.url).pathname)
-  );
-  app.get("*", (req, res) =>
-    res.sendFile(
-      new URL("../../client/dist/index.html", import.meta.url).pathname
-    )
-  );
-}
-
 app.listen(port, () => {
   logInfo(`Server started on port ${port}`);
 });
@@ -41,5 +30,5 @@ if (process.env.NODE_ENV === "production") {
 
 // For Cypress testing
 if (process.env.NODE_ENV !== "production") {
-  app.use("https://book-cafe-yi78.onrender.com/api/test", testRouter);
+  app.use("/api/test", testRouter);
 }

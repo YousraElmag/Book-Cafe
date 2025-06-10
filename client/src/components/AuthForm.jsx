@@ -18,19 +18,16 @@ const AuthForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isMatched, setIsMatched] = useState(false);
   const navigate = useNavigate();
-const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : "https://book-cafe-yi78.onrender.com";
-  const handleGoogleLogin = () => {
-    window.location.href = `${BASE_URL}/api/auth/google`;
-  };
 
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.BASE_SERVER_URL}/api/auth/google`;
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BASE_URL}/api/users/login`,
+      const response = await axios.post(
+        `${process.env.BASE_SERVER_URL}/api/users/login`,
         { email, password },
       );
       if (response.data) {
@@ -54,7 +51,7 @@ const BASE_URL =
     }
     try {
       const { data } = await axios.post(
-        `${BASE_URL}/api/users/register`,
+        `${process.env.BASE_SERVER_URL}/api/users/register`,
         { name, email, password, confirmPassword },
       );
       if (data) {

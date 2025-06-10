@@ -5,11 +5,11 @@ import User from "../models/User.js";
 import { logError } from "../util/logging.js";
 dotenv.config();
 
+const callbackURL =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.BASE_URL}/api/auth/google/callback`
+    : "http://localhost:3000/api/auth/google/callback";
 
-  const callbackURL = "https://book-cafe-yi78.onrender.com/api/auth/google/callback";
-;
-
-   
 passport.use(
   new GoogleStrategy(
     {

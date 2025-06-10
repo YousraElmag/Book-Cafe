@@ -46,19 +46,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
+    // All variables in our .env should be mentioned here
     new webpack.EnvironmentPlugin({
-      BASE_SERVER_URL: "", 
+      // Default is '' because on our heroku servers we want to have it default to our current URL
+      BASE_SERVER_URL: "",
     }),
- 
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
   ],
+  // To tell the dev server that everything should go back to index.html
   devServer: {
-  proxy: [
-    {
-      context: ['/api'],
-      target:  'https://book-cafe-yi78.onrender.com',
-      changeOrigin: true,
-    },
-  ],
-}
-
+    historyApiFallback: true,
+  },
 };
