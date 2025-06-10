@@ -5,8 +5,9 @@ import User from "../models/User.js";
 import { logError } from "../util/logging.js";
 dotenv.config();
 
-const callbackURL =
-   "https://book-cafe-yi78.onrender.com/api/auth/google";
+
+  const callbackURL = "https://book-cafe-yi78.onrender.com/api/auth/google/callback";
+;
 
    
 passport.use(
